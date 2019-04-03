@@ -5,14 +5,16 @@
     <th>Nom</th>
     <th>Point de vie</th>
     <th>Point d'attaque</th>
-    <th></th>
+    <th colspan="3"></th>
   </tr>
   <% @fighters.each do |fighter| %>
     <tr>
       <td><%= fighter.name %></td>
       <td><%= fighter.life_points %></td>
       <td><%= fighter.attack_points %></td>
-      <td><%= link_to 'Voir', fighter_path(fighter) %></td>
+      <td><%= link_to 'Voir', fighter_path(fighter) %> </td>
+      <td><%= link_to 'Edition', edit_fighter_path(fighter) %></td>
+      <td><%= link_to 'Supprimer', fighter_path(fighter), method: :delete, data: { confirm: 'Vraiment?'} %></td>
     </tr>
   <% end %>
 </table>

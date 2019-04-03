@@ -1,0 +1,19 @@
+<%= form_with model: @fighter, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :life_points %><br>
+    <%= form.text_field :life_points %>
+  </p>
+
+  <p>
+    <%= form.label :attack_points %><br>
+    <%= form.text_field :attack_points %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
