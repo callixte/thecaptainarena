@@ -1,0 +1,18 @@
+<h1>Les Combattants</h1>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Point de vie</th>
+    <th>Point d'attaque</th>
+    <th></th>
+  </tr>
+  <% @fighters.each do |fighter| %>
+    <tr>
+      <td><%= fighter.name %></td>
+      <td><%= fighter.life_points %></td>
+      <td><%= fighter.attack_points %></td>
+      <td><%= link_to 'Voir', fighter_path(fighter) %></td>
+    </tr>
+  <% end %>
+</table>
