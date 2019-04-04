@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  life_points: 
-  attack_points: 
+  name: Joe the Conqueror
+  life_points: 123
+  attack_points: 234
 
 two:
-  name: MyString
-  life_points: 
-  attack_points: 
+  name: Archibald the Brute
+  life_points: 23
+  attack_points: 231
