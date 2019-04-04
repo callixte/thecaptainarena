@@ -1,0 +1,36 @@
+<h1>Sélectionner les Combattants</h1>
+
+<% if @fighter1 %>
+  <h2>Premier combattant</h2>
+  <h3><%= @fighter1.name %></h3>
+
+  <p>Points de vie: <%= @fighter1.life_points %></p>
+  <p>Points d'attaque: <%= @fighter1.attack_points %></p>
+<% end %>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Point de vie</th>
+    <th>Point d'attaque</th>
+    <th>Gagnés</th>
+    <th>Perdus</th>
+    <th></th>
+  </tr>
+  <% @fighters.each do |fighter|
+      if @fighter1.nil? or @fighter1 != fighter %>
+        <tr>
+          <td><%= fighter.name %></td>
+          <td><%= fighter.life_points %></td>
+          <td><%= fighter.attack_points %></td>
+          <td><%= fighter.won_fights.count %></td>
+          <td><%= fighter.lost_fights.count %></td>
+          <% if @fighter1 %>
+            <td><%= link_to 'Selectionner', go_fight_path(@fighter1, fighter) %> </td>
+          <% else %>
+            <td><%= link_to 'Selectionner', select_fight_path(fighter) %> </td>
+          <% end %>
+        </tr>
+      <% end %>
+  <% end %>
+</table>
