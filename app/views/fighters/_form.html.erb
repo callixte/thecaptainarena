@@ -1,17 +1,44 @@
+<p>Choisis les caractéristiques de ton combattant.</p>
+<ul>
+  <li>Les points de vie notent la capacité à encaisser des coups</li>
+  <li>La force note la puissance des coups</li>
+  <li>La dextérité note la capacité à porter des coups</li>
+  <li>Chacune doit être inférieure à 100</li>
+  <li>La somme des trois doit être inférieure à 250</li>
+</ul>
 <%= form_with model: @fighter, local: true do |form| %>
+
+  <% if @fighter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        Le Combattant n'a pas pu être sauvegardé:
+      </h2>
+      <ul>
+        <% @fighter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
 
   <p>
-    <%= form.label :life_points %><br>
+    <%= form.label 'Points de vie' %><br>
     <%= form.text_field :life_points %>
   </p>
 
   <p>
-    <%= form.label :attack_points %><br>
+    <%= form.label 'Force' %><br>
     <%= form.text_field :attack_points %>
+  </p>
+
+  <p>
+    <%= form.label 'Dextérité' %><br>
+    <%= form.text_field :dexterity %>
   </p>
   <p>
     <%= form.submit %>

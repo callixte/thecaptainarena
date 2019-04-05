@@ -5,14 +5,16 @@
   <h3><%= @fighter1.name %></h3>
 
   <p>Points de vie: <%= @fighter1.life_points %></p>
-  <p>Points d'attaque: <%= @fighter1.attack_points %></p>
+  <p>Force: <%= @fighter1.attack_points %></p>
+  <p>Dextérité: <%= @fighter1.dexterity %></p>
 <% end %>
 
 <table>
   <tr>
     <th>Nom</th>
     <th>Point de vie</th>
-    <th>Point d'attaque</th>
+    <th>Force</th>
+    <th>Dextérité</th>
     <th>Gagnés</th>
     <th>Perdus</th>
     <th></th>
@@ -23,6 +25,7 @@
           <td><%= fighter.name %></td>
           <td><%= fighter.life_points %></td>
           <td><%= fighter.attack_points %></td>
+          <td><%= fighter.dexterity %></td>
           <td><%= fighter.won_fights.count %></td>
           <td><%= fighter.lost_fights.count %></td>
           <% if @fighter1 %>
