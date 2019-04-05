@@ -1,2 +1,6 @@
 <h1><%= @fight.winner.name %> gagne le combat</h1>
-<p><%= @fight.summary %></p>
+<p>
+  <% @fight.summary_ex.each do |s| %>
+    <%= s %><br>
+  <% end %>
+</p>

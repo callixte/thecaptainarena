@@ -6,11 +6,24 @@ class FightTest < ActiveSupport::TestCase
     @f2 = fighters(:two)
   end
 
-  test '.round' do
-    d1, d2, summary = Fight.round(@f1, @f2)
-    assert d1 == 23
-    assert d2 == 27
-    assert summary == "#{@f1.name} donne un coup de tête et #{@f2.name} lui renvoie un coup de pied\n"
+  test '.strike when fighter misses' do
+    rdm = Minitest::Mock.new
+    rdm.expect :rand, 78, [100]
+    rdm.expect :rand, 3, [5]
+
+    d, s = Fight.strike(@f1, @f2, rdm)
+    assert d == 0
+    assert s == 'Joe the Conqueror tente un coup de genou et rate'
+  end
+
+  test '.strike when fighter succeeds' do
+    rdm = Minitest::Mock.new
+    rdm.expect :rand, 34, [100]
+    rdm.expect :rand, 1, [5]
+
+    d, s = Fight.strike(@f1, @f2, rdm)
+    assert d == 11
+    assert s == 'Joe the Conqueror donne un coup de pied'
   end
 
   test '.save_fight when @f1 wins' do

@@ -2,10 +2,12 @@
 
 one:
   name: Joe the Conqueror
-  life_points: 123
-  attack_points: 234
+  life_points: 67
+  attack_points: 56
+  dexterity: 90
 
 two:
   name: Archibald the Brute
   life_points: 23
-  attack_points: 231
+  attack_points: 90
+  dexterity: 90

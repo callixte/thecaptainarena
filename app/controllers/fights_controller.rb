@@ -9,4 +9,8 @@ class FightsController < ApplicationController
     @fighter2 = Fighter.find(params[:id2])
     @fight = Fight.start(@fighter1, @fighter2)
   end
+
+  def index
+    @fights = Fight.all
+  end
 end
