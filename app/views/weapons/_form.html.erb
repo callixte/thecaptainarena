@@ -1,0 +1,39 @@
+<p>Choisis les caractéristiques de ton arme.</p>
+<ul>
+  <li>Le bonus d'attaque s'ajoute à la force</li>
+  <li>Le bonus de défense diminue l'impact des coups</li>
+</ul>
+<%= form_with model: @weapon, local: true do |form| %>
+
+  <% if @weapon.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        L'arme n'a pas pu être sauvegardée:
+      </h2>
+      <ul>
+        <% @weapon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label 'Bonus attack' %><br>
+    <%= form.text_field :attack %>
+  </p>
+
+  <p>
+    <%= form.label 'Bonus defense' %><br>
+    <%= form.text_field :defence %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
