@@ -1,24 +1,35 @@
-# README
+# L'Arène
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prérequis
 
-Things you may want to cover:
+Installer `docker` et `docker-compose`
 
-* Ruby version
+## Premier démarage
 
-* System dependencies
+On utilise `docker-compose` pour faire lancer les instances.
 
-* Configuration
+```
+$> docker-compose up
+```
 
-* Database creation
+La première fois, docker télécharge toutes les images et ça peut prendre du temps.
 
-* Database initialization
+Ensuite, dans un autre terminal:
 
-* How to run the test suite
+```
+$> docker-compose run web rails db:create
+```
+pour créer la base et puis:
+```
+$> docker-compose run web rails db:seed
+```
+pour générer des données.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Ensuite
 
-* Deployment instructions
-
-* ...
+D'une manière générale, on utilise `docker-compose run web <command>` pour lancer
+une commande dans le container rails. Par exemple:
+```
+$> docker-compose run web rails test
+```
+pour lancer les tests unitaires.
