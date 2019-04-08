@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ $font-stack:    Helvetica, sans-serif;
+ $primary-color: #333;
+ $background-color: #eee;
+
+ body {
+   font: 100% $font-stack;
+   color: $primary-color;
+   background-color: $background-color
+ }
+
+a {
+  color: #336;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

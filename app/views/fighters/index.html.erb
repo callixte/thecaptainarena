@@ -6,6 +6,8 @@
     <th>Point de vie</th>
     <th>Force</th>
     <th>Dextérité</th>
+    <th>Gagnés</th>
+    <th>Perdus</th>
     <th colspan="3"></th>
   </tr>
   <% @fighters.each do |fighter| %>
@@ -14,6 +16,8 @@
       <td><%= fighter.life_points %></td>
       <td><%= fighter.attack_points %></td>
       <td><%= fighter.dexterity %></td>
+      <td><%= fighter.won_fights.count %></td>
+      <td><%= fighter.lost_fights.count %></td>
       <td><%= link_to 'Voir', fighter_path(fighter) %> </td>
       <td><%= link_to 'Edition', edit_fighter_path(fighter) %></td>
       <td><%= link_to 'Supprimer', fighter_path(fighter), method: :delete, data: { confirm: 'Vraiment?'} %></td>
