@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'fighters/avatar', to: 'fighters#avatar', as: 'fighter_avatar'
   resources :fighters
   resources :weapons
 

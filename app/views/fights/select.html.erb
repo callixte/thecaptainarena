@@ -1,12 +1,21 @@
 <h1>Sélectionner les Combattants</h1>
 
 <% if @fighter1 %>
-  <h2>Premier combattant</h2>
-  <h3><%= @fighter1.name %></h3>
+  <table>
+    <tr>
+      <td>
+        <h2>Premier combattant</h2>
+        <h3><%= @fighter1.name %></h3>
 
-  <p>Points de vie: <%= @fighter1.life_points %></p>
-  <p>Force: <%= @fighter1.attack_points %></p>
-  <p>Dextérité: <%= @fighter1.dexterity %></p>
+        <p>Points de vie: <%= @fighter1.life_points %></p>
+        <p>Force: <%= @fighter1.attack_points %></p>
+        <p>Dextérité: <%= @fighter1.dexterity %></p>
+      </td>
+      <td>
+        <%= image_tag "#{@fighter1.avatar}.jpg" %>
+      </td>
+    </tr>
+  </table>
 <% end %>
 
 <table>

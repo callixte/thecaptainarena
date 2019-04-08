@@ -23,7 +23,8 @@ NAMES.each do |n|
     name: name,
     life_points: life,
     attack_points: force,
-    dexterity: dext
+    dexterity: dext,
+    avatar: rdm.rand(20) + 1
   )
 end
 

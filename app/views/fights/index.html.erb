@@ -8,8 +8,14 @@
   </tr>
   <% @fights.each do |fight| %>
     <tr>
-      <td><%= fight.winner.name %></td>
-      <td><%= fight.loser.name %></td>
+      <td>
+        <%= fight.winner.name %><br>
+        <%= image_tag "#{fight.winner.avatar}.jpg" %>
+      </td>
+      <td>
+        <%= fight.loser.name %><br>
+        <%= image_tag "#{fight.loser.avatar}.jpg" %>
+      </td>
       <td><% fight.summary_ex.each do |s| %>
           <%= s %><br>
         <% end %>

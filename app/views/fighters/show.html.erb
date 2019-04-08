@@ -1,7 +1,16 @@
 <h1><%= @fighter.name %></h1>
 
-<p>Points de vie: <%= @fighter.life_points %></p>
-<p>Force: <%= @fighter.attack_points %></p>
-<p>Dextérité: <%= @fighter.dexterity %></p>
+<table>
+  <tr>
+    <td>
+      <p>Points de vie: <%= @fighter.life_points %></p>
+      <p>Force: <%= @fighter.attack_points %></p>
+      <p>Dextérité: <%= @fighter.dexterity %></p>
+    </td>
+    <td>
+      <%= image_tag "#{@fighter.avatar}.jpg" %>
+    </td>
+  </tr>
+</table>
 
 <%= link_to 'Retour aux combattants', fighters_path %>

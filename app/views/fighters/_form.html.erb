@@ -21,26 +21,36 @@
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+  <table>
+    <tr>
+      <td>
+        <p>
+          <%= form.label :name %><br>
+          <%= form.text_field :name %>
+        </p>
 
-  <p>
-    <%= form.label 'Points de vie' %><br>
-    <%= form.text_field :life_points %>
-  </p>
+        <p>
+          <%= form.label 'Points de vie' %><br>
+          <%= form.text_field :life_points %>
+        </p>
 
-  <p>
-    <%= form.label 'Force' %><br>
-    <%= form.text_field :attack_points %>
-  </p>
+        <p>
+          <%= form.label 'Force' %><br>
+          <%= form.text_field :attack_points %>
+        </p>
 
-  <p>
-    <%= form.label 'Dextérité' %><br>
-    <%= form.text_field :dexterity %>
-  </p>
+        <p>
+          <%= form.label 'Dextérité' %><br>
+          <%= form.text_field :dexterity %>
+        </p>
+      </td>
+      <td>
+        <%= link_to image_tag("#{@fighter.avatar}.jpg"), fighter_avatar_path %>
+      </td>
+    </tr>
+  </table>
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>

@@ -1,0 +1,14 @@
+<h1>Choisir un avatar</h1>
+
+<table>
+  <% [*0..3].each do |i| %>
+    <tr>
+      <% [*1..5].each do |j|
+            img = i * 5 + j %>
+        <td>
+          <%= link_to image_tag("#{img}.jpg"), request.referer + "?avatar=#{img}" %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

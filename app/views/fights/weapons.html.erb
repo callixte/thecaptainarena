@@ -3,9 +3,9 @@
 <%= form_with url: go_fight_path(@fighter1.id, @fighter2.id), local: true do |form| %>
   <table>
     <tr>
-      <th>Combattant 1</th>
+      <th colspan="2">Combattant 1</th>
       <th>vs</th>
-      <th>Combattant 2</th>
+      <th colspan="2">Combattant 2</th>
     </tr>
     <tr>
       <td>
@@ -13,31 +13,33 @@
         <p>Points de vie: <%= @fighter1.life_points %></p>
         <p>Force: <%= @fighter1.attack_points %></p>
         <p>Dextérité: <%= @fighter1.dexterity %></p></td>
+      <td><%= image_tag "#{@fighter1.avatar}.jpg" %></td>
       <td></td>
       <td>
         <h1><%= @fighter2.name %></h1>
         <p>Points de vie: <%= @fighter2.life_points %></p>
         <p>Force: <%= @fighter2.attack_points %></p>
         <p>Dextérité: <%= @fighter2.dexterity %></p></td>
+        <td><%= image_tag "#{@fighter1.avatar}.jpg" %></td>
     </tr>
     <tr>
-      <td>
+      <td colspan="2">
         Première arme:
         <%= form.select 'w11', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
       </td>
       <td></td>
-      <td>
+      <td colspan="2">
         Première arme:
         <%= form.select 'w21', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
       </td>
     </tr>
     <tr>
-      <td>
+      <td colspan="2">
         Deuxième arme:
         <%= form.select 'w12', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
       </td>
       <td></td>
-      <td>
+      <td colspan="2">
         Deuxième arme:
         <%= form.select 'w22', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
       </td>

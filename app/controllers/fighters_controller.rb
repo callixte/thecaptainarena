@@ -9,10 +9,12 @@ class FightersController < ApplicationController
 
   def new
     @fighter = Fighter.new
+    @fighter.avatar = params[:avatar].blank? ? 1 : params[:avatar]
   end
 
   def edit
     @fighter = Fighter.find(params[:id])
+    @fighter.avatar = params[:avatar].blank? ? @fighter.avatar : params[:avatar]
   end
 
   def create
@@ -40,6 +42,9 @@ class FightersController < ApplicationController
     @fighter.destroy
 
     redirect_to fighters_path
+  end
+
+  def avatar
   end
 
   private
