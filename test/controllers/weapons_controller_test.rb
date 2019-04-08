@@ -12,13 +12,13 @@ class WeaponsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    w = weapon(:one)
-    get show_weapon_url(w.id)
+    w = weapons(:one)
+    get weapon_url(w.id)
     assert_response :success
   end
 
   test "should get edit" do
-    w = weapon(:one)
+    w = weapons(:one)
     get edit_weapon_url(w.id)
     assert_response :success
   end

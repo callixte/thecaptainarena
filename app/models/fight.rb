@@ -7,12 +7,11 @@ class Fight < ApplicationRecord
   end
 
   class << self
-    WEAPONS = %w[tête pied poing genou coude].freeze
     def start(fighter1, fighter2)
       life1 = fighter1.life_points
       life2 = fighter2.life_points
       the_tale = ''
-      while (life1 > 0) && (life2 > 0)
+      while life1.positive? && life2.positive?
         damage1, damage2, summary = round(fighter1, fighter2)
         life1 -= damage2
         life2 -= damage1
@@ -26,22 +25,27 @@ class Fight < ApplicationRecord
       rdm = Random.new
       d1, s1 = strike(fighter1, fighter2, rdm)
       d2, s2 = strike(fighter2, fighter1, rdm)
-      if d1 > d2
-        s = s1 + ' et ' + s2 + '.'
-      else
-        s = s2 + ' et ' + s1 + '.'
-      end
+      s =
+        if d1 > d2
+          s1 + ' et ' + s2 + '.'
+        else
+          s2 + ' et ' + s1 + '.'
+        end
       [d1, d2, s]
     end
 
-    def strike(f1, f2, rdm)
-      if attack_capability(f1.dexterity, f2.dexterity) > rdm.rand(100) # f1 porte un coup
-        d = f1.attack_points / 5
-        s = "#{f1.name} donne un coup de #{WEAPONS[rdm.rand(WEAPONS.size)]}"
+    def strike(fighter1, fighter2, rdm)
+      if attack_capability(fighter1.dexterity, fighter2.dexterity) > rdm.rand(100)
+        # fighter1 porte un coup
+        wpn, d = fighter1.weapon_used(rdm)
+        d += fighter1.attack_points / 5
+        s = "#{fighter1.name} donne un coup de #{wpn}"
       else
+        wpn, = fighter1.weapon_used(rdm)
         d = 0
-        s = "#{f1.name} tente un coup de #{WEAPONS[rdm.rand(WEAPONS.size)]} et rate"
+        s = "#{fighter1.name} tente un coup de #{wpn} et rate"
       end
+      d = [0, d - fighter2.defence_bonus(rdm)].max
       [d, s]
     end
 

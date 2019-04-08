@@ -29,7 +29,7 @@
           <td><%= fighter.won_fights.count %></td>
           <td><%= fighter.lost_fights.count %></td>
           <% if @fighter1 %>
-            <td><%= link_to 'Selectionner', go_fight_path(@fighter1, fighter) %> </td>
+            <td><%= link_to 'Selectionner', select_weapons_path(@fighter1, fighter) %> </td>
           <% else %>
             <td><%= link_to 'Selectionner', select_fight_path(fighter) %> </td>
           <% end %>

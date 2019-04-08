@@ -1,0 +1,48 @@
+<h1>Sélectionner les Armes</h1>
+
+<%= form_with url: go_fight_path(@fighter1.id, @fighter2.id), local: true do |form| %>
+  <table>
+    <tr>
+      <th>Combattant 1</th>
+      <th>vs</th>
+      <th>Combattant 2</th>
+    </tr>
+    <tr>
+      <td>
+        <h1><%= @fighter1.name %></h1>
+        <p>Points de vie: <%= @fighter1.life_points %></p>
+        <p>Force: <%= @fighter1.attack_points %></p>
+        <p>Dextérité: <%= @fighter1.dexterity %></p></td>
+      <td></td>
+      <td>
+        <h1><%= @fighter2.name %></h1>
+        <p>Points de vie: <%= @fighter2.life_points %></p>
+        <p>Force: <%= @fighter2.attack_points %></p>
+        <p>Dextérité: <%= @fighter2.dexterity %></p></td>
+    </tr>
+    <tr>
+      <td>
+        Première arme:
+        <%= form.select 'w11', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
+      </td>
+      <td></td>
+      <td>
+        Première arme:
+        <%= form.select 'w21', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Deuxième arme:
+        <%= form.select 'w12', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
+      </td>
+      <td></td>
+      <td>
+        Deuxième arme:
+        <%= form.select 'w22', options_for_select(@weapons.collect{ |w| [w.name, w.id]}), include_blank: true %>
+      </td>
+    </tr>
+  </table>
+
+  <%= form.submit %>
+<% end %>
